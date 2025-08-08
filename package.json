@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "^9.3.0",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.536.0",
+    "maath": "^0.10.8",
     "math": "^0.0.3",
     "next": "15.4.5",
     "react": "19.1.0",
