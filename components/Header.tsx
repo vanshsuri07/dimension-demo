@@ -136,14 +136,14 @@ const Header: React.FC<HeaderProps> = ({className=''}) => {
         >
           <div className="pt-4 space-y-4">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="block text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div className="pt-4 space-y-3 border-t border-gray-200">
               <a

@@ -8,8 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Remove the keyframes and animation from here since you're defining them in CSS
-      // This prevents conflicts between Tailwind config and CSS definitions
+    
     },
   },
   plugins: [],

@@ -25,14 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* CSS Custom Property for border angle */
-@property --border-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
-/* Define the keyframes */
+/* Traditional keyframe animations without CSS custom properties */
 @keyframes border-spin {
   0% {
     transform: rotate(0deg);
@@ -42,19 +35,47 @@ body {
   }
 }
 
-@keyframes rotate-border {
+@keyframes rotate-border-conic {
   0% {
-    --border-angle: 0deg;
+    background: conic-gradient(from 0deg, transparent, #3b82f6, transparent);
+  }
+  25% {
+    background: conic-gradient(from 90deg, transparent, #3b82f6, transparent);
+  }
+  50% {
+    background: conic-gradient(from 180deg, transparent, #3b82f6, transparent);
+  }
+  75% {
+    background: conic-gradient(from 270deg, transparent, #3b82f6, transparent);
   }
   100% {
-    --border-angle: 360deg;
+    background: conic-gradient(from 360deg, transparent, #3b82f6, transparent);
   }
 }
 
-/* Define animations in theme for Tailwind v4 */
+@keyframes rotate-border-yellow {
+  0% {
+    background: conic-gradient(from 0deg, black, #eab308, black);
+  }
+  25% {
+    background: conic-gradient(from 90deg, black, #eab308, black);
+  }
+  50% {
+    background: conic-gradient(from 180deg, black, #eab308, black);
+  }
+  75% {
+    background: conic-gradient(from 270deg, black, #eab308, black);
+  }
+  100% {
+    background: conic-gradient(from 360deg, black, #eab308, black);
+  }
+}
+
+/* Register animations with Tailwind v4 */
 @theme {
   --animate-border-spin: border-spin 4s linear infinite;
-  --animate-rotate-border: rotate-border 6s linear infinite;
+  --animate-rotate-border-conic: rotate-border-conic 6s linear infinite;
+  --animate-rotate-border-yellow: rotate-border-yellow 6s linear infinite;
 }
 
 .card-wrapper {
@@ -80,4 +101,13 @@ body {
 
 .card-content {
   @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-gradient-to-br from-violet-400 via-rose-400 to-yellow-200;
+}
+
+/* Fallback classes for animations */
+.animate-rotate-border-fallback {
+  animation: rotate-border-conic 6s linear infinite;
+}
+
+.animate-rotate-border-yellow-fallback {
+  animation: rotate-border-yellow 6s linear infinite;
 }
