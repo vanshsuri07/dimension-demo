@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
    <div className="relative overflow-hidden">
-      <StarCanvas /> {/* Renders in background */}
+      <StarCanvas />
       <Header />
       <Hero />
       <AnimatedPage2 />
