@@ -1,4 +1,4 @@
-import { extend } from '@react-three/fiber'
+`import { extend } from '@react-three/fiber'
 import { Group, Mesh, BufferGeometry, Material, Points } from 'three'
 
 declare global {
