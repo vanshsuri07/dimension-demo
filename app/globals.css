@@ -25,11 +25,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* CSS Custom Property for border angle */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
 
-
-
-
-
+/* Define the keyframes */
 @keyframes border-spin {
   0% {
     transform: rotate(0deg);
@@ -39,10 +42,24 @@ body {
   }
 }
 
+@keyframes rotate-border {
+  0% {
+    --border-angle: 0deg;
+  }
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+/* Define animations in theme for Tailwind v4 */
+@theme {
+  --animate-border-spin: border-spin 4s linear infinite;
+  --animate-rotate-border: rotate-border 6s linear infinite;
+}
+
 .card-wrapper {
   @apply relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-700 to-slate-800;
 }
-
 
 .card-wrapper::before {
   content: '';
@@ -61,30 +78,6 @@ body {
   z-index: 0;
 }
 
-
 .card-content {
   @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-gradient-to-br from-violet-400 via-rose-400 to-yellow-200;
 }
-
-
-;
-
-
-@property --border-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
-@theme{
-
-  --animate-rotate-border: border-rotate 5s linear infinite;
-
-  @keyframes border-rotate {
-    to {
-      --border-angle: 360deg;
-    }
-  }
-}
-
-
